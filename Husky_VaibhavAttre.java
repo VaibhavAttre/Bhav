@@ -3,7 +3,6 @@
 // AP CSA
 // Teacher: Mr. Thompson
 // Bear Class
-//
 // this class extends the critter class and is the code for a "husky" critter
 
 import java.awt.*;
