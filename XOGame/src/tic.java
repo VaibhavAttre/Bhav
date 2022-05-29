@@ -69,7 +69,7 @@ public class tic {
 	public static boolean  winX() {
 		boolean won = false;
 		for (int i =0; i < 3; i++) {
-			if (checkHor("X", i, 0) || checkVer("X",0,i)) {
+			if (checkHor("X", i, 0) || checkVer("X",0,i) || checkDiag("X")) {
 				won = true;
 				break;
 			}
@@ -81,7 +81,7 @@ public class tic {
 	public static boolean winO() {
 		boolean won = false;
 		for (int i =0; i < 3; i++) {
-			if (checkHor("O", i, 0)|| checkVer("X",0,i)) {
+			if (checkHor("O", i, 0)|| checkVer("X",0,i) || checkDiag("O")) {
 				won = true;
 				break;
 			}
@@ -112,11 +112,21 @@ public class tic {
 		} 
 		return false;
 	}
-	/*
+	
 	//checks diagonal for win
 	public static boolean checkDiag(String x) {
-		
+		boolean found = false;
+		for (int i = 0; i < 3; i++) {
+			if (grid[i][i].equals(x) || grid[i][2-i].equals(x)) {
+				if (i == 2) {
+					found = true;
+				}
+			} else {
+				break;
+			}
+		}
+		return found;
 	}
-	*/
+	
 }
 	
