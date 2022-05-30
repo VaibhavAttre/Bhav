@@ -8,12 +8,12 @@ public class tic {
 	//main method
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		setGrid();
-		//grid[0][0] = "X";
-		//grid[0][1] = "X";
-		//grid[0][2] = "X";
-		
+		setGrid();		
 		move();
+	}
+	
+	public tic(String[][] g) {
+		grid = g;
 	}
 	
 	//printing the grid
@@ -49,10 +49,14 @@ public class tic {
 		System.out.println("Give move x and y");
 		int x = s.nextInt();
 		int y = s.nextInt();
-		if(m == true) {
-			grid[x][y] = "X";
-		} else {
-			grid[x][y] = "O";
+		if (!grid[x][y].equals(" ")) {
+			playerMove(m);
+		}else {
+			if(m == true) {
+				grid[x][y] = "X";
+			} else {
+				grid[x][y] = "O";
+			}
 		}
 	}
 	
@@ -81,7 +85,7 @@ public class tic {
 	public static boolean winO() {
 		boolean won = false;
 		for (int i =0; i < 3; i++) {
-			if (checkHor("O", i, 0)|| checkVer("X",0,i) || checkDiag("O")) {
+			if (checkHor("O", i, 0)|| checkVer("O",0,i) || checkDiag("O")) {
 				won = true;
 				break;
 			}
