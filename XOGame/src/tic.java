@@ -1,9 +1,11 @@
-import java.util.Scanner;
-public class tic {
-	
+import java.util.*;
+
+public class tic{
+
 	//public variables 
 	public static Scanner s = new Scanner(System.in);
 	public static String[][] grid = new String[3][3];
+
 	
 	//main method
 	public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class tic {
 		setGrid();		
 		move();
 	}
-	
+		
 	public tic(String[][] g) {
 		grid = g;
 	}
