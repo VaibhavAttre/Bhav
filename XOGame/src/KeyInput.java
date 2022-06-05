@@ -4,9 +4,11 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter{
 	
 	private Handler handler;
+	private boolean turn;
 	
-	public KeyInput(Handler handler) {
+	public KeyInput(Handler handler, boolean turn) {
 		this.handler = handler;
+		this.turn = turn;
 	}
 	
 	public void keyPressed(KeyEvent e) {
@@ -16,11 +18,11 @@ public class KeyInput extends KeyAdapter{
 		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject temp = handler.object.get(i);
 			
-			if (temp.getID() == ID.Player) {
+			if (/*temp.getID() == ID.Player && */i%2 == 0) {
 				if (key == KeyEvent.VK_1 ) {
 					TicTacToeApp.grid[0][0] = 'X';
 				} else if (key == KeyEvent.VK_2 ) {
-								TicTacToeApp.grid[0][1] = 'X';
+					TicTacToeApp.grid[0][1] = 'X';
 				} else if (key == KeyEvent.VK_3 ) {
 					TicTacToeApp.grid[0][2] = 'X';
 				} else if (key == KeyEvent.VK_4 ) {
@@ -38,7 +40,7 @@ public class KeyInput extends KeyAdapter{
 				}
  
 			}
-			else if(temp.getID() == ID.Enemy) {
+			else if(/*temp.getID() == ID.Enemy && */i%2 != 0) {
 		
 				if (key == KeyEvent.VK_Q ) {
 					TicTacToeApp.grid[0][0] = 'O';
@@ -77,8 +79,8 @@ public class KeyInput extends KeyAdapter{
 		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject temp = handler.object.get(i);
 			
-			if (temp.getID() == ID.Player) {
-				if (key == KeyEvent.VK_1) {
+			if (/*temp.getID() == ID.Player && */i%2 == 0 ) {
+				if (key == KeyEvent.VK_1 ) {
 					TicTacToeApp.grid[0][0] = 'X';
 				} else if (key == KeyEvent.VK_2 ) {
 					TicTacToeApp.grid[0][1] = 'X';
@@ -99,7 +101,7 @@ public class KeyInput extends KeyAdapter{
 				}
  
 			}
-			else if(temp.getID() == ID.Enemy) {
+			else if(/*temp.getID() == ID.Enemy && */i%2 != 0) {
 		
 				if (key == KeyEvent.VK_Q ) {
 					TicTacToeApp.grid[0][0] = 'O';

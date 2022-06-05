@@ -15,7 +15,7 @@ public class TicTacToeApp extends Canvas implements Runnable {
 	
 	private BufferStrategy bs = this.getBufferStrategy();
 	public static boolean ex = false;
-
+	public static int turn = 0;
 	//private Graphics g = bs.getDrawGraphics();
 	
 	//public variables 
@@ -25,11 +25,16 @@ public class TicTacToeApp extends Canvas implements Runnable {
 	
 	public TicTacToeApp() {
 		handler = new Handler();
-		this.addKeyListener(new KeyInput(handler));
+		if (turn%2 == 0) {
+			this.addKeyListener(new KeyInput(handler, true));
+		} else {
+			this.addKeyListener(new KeyInput(handler, false));
+		}
+		turn++;
 		new GameClass(WIDTH, HEIGHT, "TicTacToe", this);
 		handler.addObject(new Player(0,0,ID.Player, Color.white, false));
 		handler.addObject(new Computer(0,0,ID.Enemy, Color.white, false));
-		
+		System.out.println(turn+ "turn");
 		if  (tObj != null) throw new RuntimeException("alr created yuh");
 		tObj = this;
 
@@ -38,6 +43,8 @@ public class TicTacToeApp extends Canvas implements Runnable {
 	public static TicTacToeApp getInstance() {
 		return tObj;
 	}
+	
+
 	public void run() {
 		long lastTime = System.nanoTime();
 		double amountOfTicks = 60.0;
