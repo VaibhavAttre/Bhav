@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
+
 public class Computer extends GameObject{
 
 	public Computer(int x, int y, ID id, Color c, boolean won) {
@@ -10,7 +11,7 @@ public class Computer extends GameObject{
 
 	public void tick() {
 		// TODO Auto-generated method stub
-		
+		// random 
 	}
 
 	public void render(Graphics g, boolean won) {
@@ -22,7 +23,7 @@ public class Computer extends GameObject{
 		} else {
 			g.fillRect(x, y, 640, 640);
 		}
-		
+	 	
 		
 	}
 }

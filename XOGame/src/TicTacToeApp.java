@@ -22,6 +22,7 @@ public class TicTacToeApp extends Canvas implements Runnable {
 	public static Scanner s = new Scanner(System.in);
 	public static char[][] grid =new char[3][3];
 	public static TicTacToeApp tObj = null;
+	public static boolean turns = true;
 	
 	public TicTacToeApp() {
 		handler = new Handler();
@@ -30,11 +31,12 @@ public class TicTacToeApp extends Canvas implements Runnable {
 		} else {
 			this.addKeyListener(new KeyInput(handler, false));
 		}
+		
 		turn++;
 		new GameClass(WIDTH, HEIGHT, "TicTacToe", this);
 		handler.addObject(new Player(0,0,ID.Player, Color.white, false));
 		handler.addObject(new Computer(0,0,ID.Enemy, Color.white, false));
-		System.out.println(turn+ "turn");
+		//System.out.println(turn+ "turn");
 		if  (tObj != null) throw new RuntimeException("alr created yuh");
 		tObj = this;
 
@@ -76,6 +78,7 @@ public class TicTacToeApp extends Canvas implements Runnable {
 	}
 	
 	private void tick() { //winX is called here
+		//System.out.println(turns);
 		if (winX()) {
 			handler.addObject(new Player(0,0,ID.Player, Color.blue, true));
 			//stop();

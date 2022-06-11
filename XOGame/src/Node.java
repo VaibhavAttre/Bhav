@@ -22,7 +22,7 @@ public class Node{
 		a.next = head;
 		head = a;
 	}
-	
+
 	public void insertNode (Node prev_node, int new_data) {
 		if (prev_node == null)
         {
